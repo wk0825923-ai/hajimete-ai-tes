@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIネイティブ度診断 | はじめて.AI – あなたに最適なAI活用ルートがわかる</title>
+<meta name="description" content="30秒で診断！あなたのAIネイティブ度を測定し、最適な学習・導入ルートをご提案。はじめて.AIの無料診断でAI活用の第一歩を踏み出しましょう。">
+<meta property="og:title" content="AIネイティブ度診断 | はじめて.AI">
+<meta property="og:description" content="30秒で診断！あなたに最適なAI活用ルートがわかる。無料でレベル判定＆プラン提案。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://placehold.co/1200x630/000000/06C755?text=はじめて.AI+AIネイティブ度診断">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&family=Anton&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   BRUTALIST MONOTONE DESIGN SYSTEM v6
+   ロゴ準拠: 太枠ボックス × 極太ゴシック × 黒×白
+   アクセント: LINE グリーン #06C755 のみ
+═══════════════════════════════════════════════════════ */
+:root {
+  --black:   #000000;
+  --dk:      #0a0a0a;
+  --dkm:     #1c1c1c;
+  --dkl:     #2e2e2e;
+  --gray:    #555555;
+  --lgray:   #999999;
+  --silver:  #dddddd; /* C-2: 黒背景上コントラスト #ccc(1.6:1)→#ddd(5.7:1) WCAG AA準拠 */
+  --smoke:   #ebebeb;
+  --offwhite:#f5f5f5;
+  --white:   #ffffff;
+
+  --g:       #06C755;
+  --gd:      #00A843;
+  --gl:      #e6fff1;
+
+  --border:      3px solid var(--black);
+  --border-thin: 1.5px solid var(--black);
+  --border-sm:   1px solid #d0d0d0;
+
+  --radius: 0px;
+  --radius-sm: 4px;
+  --shadow: 4px 4px 0 var(--black);
+  --shadow-lg: 6px 6px 0 var(--black);
+  --shadow-xl: 8px 8px 0 var(--black);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+/* W-5: scroll-margin-top for sticky header offset */
+section[id] { scroll-margin-top: 80px; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+  color: var(--dk);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.lw      { width: 100%; }
+.inner   { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+.inner-sm{ max-width: 760px;  margin: 0 auto; padding: 0 24px; }
+
+.sp { display: none; }
+.pc { display: block; }
+@media (max-width: 767px) { .sp { display: block; } .pc { display: none; } }
+.pc-flex { display: flex; }
+.sp-flex { display: none; }
+@media (max-width: 767px) { .pc-flex { display: none; } .sp-flex { display: flex; } }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50%     { transform: translateY(-8px) rotate(-2deg); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+@keyframes progressBar {
+  from { width: 0%; }
+  to   { width: 60%; }
+}
+.fade-up   { animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.2s; }
+.fade-up-3 { animation-delay: 0.3s; }
+.fade-up-4 { animation-delay: 0.4s; }
+
+/* ═══════════════════════════════
+   BUTTONS
+═══════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 32px; font-weight: 900; font-size: 1rem;
+  cursor: pointer; border: none; transition: transform 0.12s ease, box-shadow 0.12s ease;
+  letter-spacing: 0.02em; border-radius: var(--radius-sm);
+}
+.btn-line {
+  background: var(--g);
+  color: var(--white);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+.btn-line:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+.btn-line:active { transform: translate(2px,2px); box-shadow: none; }
+
+.btn-black {
+  background: var(--black);
+  color: var(--white);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+.btn-black:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+.btn-black:active { transform: translate(2px,2px); box-shadow: none; }
+
+.btn-outline {
+  background: var(--white);
+  color: var(--black);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+.btn-outline:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); background: var(--offwhite); }
+
+.btn-xl { padding: 20px 52px; font-size: 1.2rem; }
+
+.line-cta-main {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 20px 40px; font-weight: 900; font-size: 1.15rem;
+  background: var(--g); color: var(--white);
+  border: var(--border); box-shadow: var(--shadow-xl);
+  cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease;
+  text-decoration: none; border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+}
+.line-cta-main:hover { transform: translate(-3px,-3px); box-shadow: 11px 11px 0 var(--black); }
+.line-cta-main:active { transform: translate(3px,3px); box-shadow: none; }
+
+.line-icon-badge {
+  width: 30px; height: 30px; background: var(--white); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.line-icon-badge .ti { color: var(--g); font-size: 1.1rem; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; font-size: 0.78rem; font-weight: 900;
+  border: var(--border-thin); letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+}
+.badge-black  { background: var(--black); color: var(--white); border-color: var(--black); }
+.badge-green  { background: var(--g); color: var(--white); border-color: var(--g); }
+.badge-white  { background: var(--white); color: var(--black); border-color: var(--black); }
+.badge-outline{ background: transparent; color: var(--black); border-color: var(--black); }
+
+.sec-label {
+  font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--black);
+  border-left: 4px solid var(--g); padding-left: 10px;
+  margin-bottom: 14px; display: inline-block;
+}
+.sec-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+  line-height: 1.2; color: var(--black); letter-spacing: -0.01em;
+}
+.sec-title em {
+  font-style: normal;
+  background: var(--black); color: var(--white);
+  padding: 0 6px; display: inline;
+}
+.sec-sub {
+  font-size: 1rem; color: var(--gray); margin-top: 14px; line-height: 1.8;
+}
+
+/* ═══════════════════════════════
+   HEADER
+═══════════════════════════════ */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: var(--border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1060px; margin: 0 auto;
+}
+.header-logo {
+  display: inline-block;
+  border: 3px solid var(--black);
+  padding: 5px 14px;
+  font-size: 1.15rem; font-weight: 900;
+  color: var(--black); letter-spacing: 0.04em;
+  line-height: 1;
+}
+.logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.logo-hira {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 900;
+}
+.logo-dot {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 900;
+}
+.logo-ai {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transform: translateY(2px);
+}
+.header-nav { display: flex; align-items: center; gap: 24px; }
+.header-nav a {
+  font-size: 0.75rem; color: var(--gray); font-weight: 700;
+  transition: color 0.15s; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.header-nav a:hover { color: var(--black); }
+.header-cta .btn { padding: 9px 20px; font-size: 0.85rem; }
+
+/* ═══════════════════════════════
+   C-4: SP ハンバーガーメニュー
+═══════════════════════════════ */
+.ham-btn {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: 40px; height: 40px;
+  background: var(--black); border: none; cursor: pointer;
+  flex-shrink: 0;
+}
+.ham-btn span {
+  display: block; width: 20px; height: 2px;
+  background: var(--white);
+  transition: transform 0.25s, opacity 0.2s;
+}
+.ham-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham-btn.open span:nth-child(2) { opacity: 0; }
+.ham-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ドロワーオーバーレイ */
+.drawer-overlay {
+  display: none; position: fixed; inset: 0; z-index: 150;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(2px);
+}
+.drawer-overlay.open { display: block; }
+
+/* ドロワー本体 */
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 160;
+  width: min(80vw, 300px);
+  background: var(--white); border-left: var(--border);
+  transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  display: flex; flex-direction: column;
+  overflow-y: auto;
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: var(--border);
+  background: var(--black);
+}
+.drawer-logo {
+  font-size: 1rem; font-weight: 900; color: var(--white); letter-spacing: 0.04em;
+}
+.drawer-logo span { color: var(--g); }
+.drawer-close {
+  width: 32px; height: 32px; background: none; border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--white); cursor: pointer; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.drawer-nav { flex: 1; padding: 20px 0; }
+.drawer-nav a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 24px; font-size: 0.9rem; font-weight: 800;
+  color: var(--black); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  border-bottom: 1px solid var(--smoke); transition: background 0.12s;
+}
+.drawer-nav a:hover { background: var(--smoke); }
+.drawer-nav a i { font-size: 1rem; color: var(--g); }
+
+.drawer-cta { padding: 20px 24px; border-top: var(--border); background: #f0fdf4; }
+.drawer-cta .btn { width: 100%; justify-content: center; padding: 14px 20px; font-size: 0.9rem; }
+.drawer-cta-sub { text-align: center; font-size: 0.72rem; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+
+/* ═══════════════════════════════
+   MARQUEE TICKER
+═══════════════════════════════ */
+.ticker {
+  background: var(--black); overflow: hidden;
+  border-bottom: 2px solid var(--black);
+  padding: 10px 0;
+}
+.ticker-inner {
+  display: flex; white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+.ticker-item {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--white); font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0 32px;
+}
+.ticker-dot { color: var(--g); font-size: 1.2rem; line-height: 1; }
+
+/* ═══════════════════════════════
+   HERO / FV
+═══════════════════════════════ */
+.hero {
+  background: var(--white);
+  position: relative; overflow: hidden;
+  padding: 72px 0 64px;
+  border-bottom: var(--border);
+}
+.hero-bg-text {
+  position: absolute; bottom: -20px; right: -20px;
+  font-size: clamp(80px, 14vw, 160px); font-weight: 900;
+  color: transparent; -webkit-text-stroke: 2px var(--smoke);
+  line-height: 1; pointer-events: none; z-index: 0;
+  user-select: none; letter-spacing: -0.04em;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.hero-tag {
+  background: var(--black); color: var(--white);
+  font-size: 0.72rem; font-weight: 900; padding: 5px 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: var(--radius-sm);
+}
+.hero-free-tag {
+  background: var(--g); color: var(--white);
+  font-size: 0.72rem; font-weight: 900; padding: 5px 12px;
+  border: var(--border-thin); border-color: var(--g);
+  border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px;
+}
+.hero-h1 {
+  font-size: clamp(2.2rem, 4.8vw, 3.6rem); font-weight: 900;
+  line-height: 1.15; color: var(--black); margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.hero-h1 .accent {
+  background: var(--black); color: var(--white);
+  padding: 0 6px;
+}
+.hero-h1 .underline-g {
+  position: relative; display: inline-block;
+  border-bottom: 5px solid var(--g);
+}
+.hero-sub { font-size: 1rem; color: var(--gray); margin-bottom: 32px; line-height: 1.85; }
+
+/* C-1修正: hero-trust-note から「多くの方にご活用済み」を削除し別訴求へ */
+.hero-trust-note { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-trust-item {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 0.8rem; color: var(--gray); font-weight: 700;
+}
+.hero-trust-item .ti { color: var(--g); font-size: 0.9rem; }
+
+.line-cta-wrap { display: flex; flex-direction: column; gap: 10px; }
+.line-cta-sub {
+  font-size: 0.78rem; color: var(--gray); /* C-1: #999→#555 白背景上コントラスト改善 */
+  display: flex; align-items: center; gap: 5px; padding-left: 2px;
+}
+.pc-sub-cta { margin-top: 4px; font-size: 0.8rem; color: var(--gray); display: flex; align-items: center; gap: 5px; } /* C-1: #999→#555 */
+.pc-sub-cta a { color: var(--gray); text-decoration: underline; }
+
+/* HERO VISUAL — mock UI（W-4修正: 疑似体験→LINE誘導） */
+.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+.mock-wrap { position: relative; width: 320px; }
+.mock-phone {
+  background: var(--white);
+  border: var(--border);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+.mock-header {
+  background: var(--black); padding: 12px 16px;
+  display: flex; align-items: center; gap: 8px;
+  border-bottom: 2px solid var(--black);
+}
+.mock-logo { font-size: 0.78rem; font-weight: 900; color: var(--white); letter-spacing: 0.02em; }
+.mock-logo span { color: var(--g); }
+.mock-body { padding: 16px; }
+.mock-q-label { font-size: 0.72rem; font-weight: 900; color: #767676; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px; } /* C-1: #999→#767676 / C-3: 0.62→0.72rem */
+.mock-q-text { font-size: 0.82rem; font-weight: 800; color: var(--black); margin-bottom: 12px; line-height: 1.5; }
+.mock-progress-wrap { margin-bottom: 14px; }
+.mock-progress-label { font-size: 0.72rem; color: #767676; margin-bottom: 4px; font-weight: 700; } /* C-1: #999→#767676 / C-3: 0.62→0.72rem */
+.mock-progress-bar { height: 5px; background: var(--smoke); border: 1px solid var(--silver); }
+.mock-progress-fill { height: 100%; background: var(--black); width: 60%; transition: width 0.6s ease; }
+.mock-choice {
+  border: 2px solid var(--smoke); padding: 8px 12px; margin-bottom: 6px;
+  font-size: 0.75rem; color: var(--gray); cursor: pointer; transition: all 0.1s;
+  display: flex; align-items: center; gap: 8px;
+}
+.mock-choice:hover { border-color: var(--black); background: var(--offwhite); }
+.mock-choice.selected { border-color: var(--black); border-width: 2px; background: var(--offwhite); color: var(--black); font-weight: 800; }
+.choice-dot { width: 14px; height: 14px; border: 2px solid var(--silver); flex-shrink: 0; }
+.mock-choice.selected .choice-dot { border-color: var(--black); background: var(--black); }
+
+/* W-4: モック結果画面 + LINE誘導CTA */
+.mock-result {
+  display: none;
+  background: var(--black); padding: 14px; color: var(--white);
+  border-top: 3px solid var(--g); margin-top: 8px;
+}
+.mock-result-level { font-size: 0.72rem; font-weight: 900; color: var(--g); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; } /* C-3: 0.6→0.72rem */
+.mock-result-type  { font-size: 1rem; font-weight: 900; margin-bottom: 6px; }
+.mock-result-score { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
+.mock-result-score .num { font-size: 2.2rem; font-weight: 900; color: var(--g); line-height: 1; }
+.mock-result-score .unit { font-size: 0.72rem; color: var(--silver); }
+.mock-result-bar { height: 6px; background: rgba(255,255,255,0.15); margin-bottom: 6px; }
+.mock-result-fill { height: 100%; background: var(--g); width: 72%; }
+.mock-result-desc { font-size: 0.72rem; color: var(--silver); line-height: 1.65; margin-bottom: 10px; } /* C-3: 0.66→0.72rem, line-height 1.55→1.65 */
+/* W-4: LINE誘導CTAをモック結果に追加 */
+.mock-result-cta {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--g); color: var(--white);
+  font-size: 0.7rem; font-weight: 900;
+  padding: 8px 10px; border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 3px; text-decoration: none;
+  transition: opacity 0.15s;
+}
+.mock-result-cta:hover { opacity: 0.9; }
+.mock-result-note {
+  font-size: 0.72rem; color: #bbbbbb; text-align: center; /* C-2: 黒背景上 #999→#bbb / C-3: 0.58→0.72rem（景品表示法対応・最優先） */
+  margin-top: 5px; line-height: 1.5;
+}
+
+/* W-4: 疑似体験バナー */
+.mock-trial-badge {
+  background: var(--g); color: var(--white);
+  font-size: 0.72rem; font-weight: 900; letter-spacing: 0.06em; /* C-3: 0.62→0.72rem */
+  text-align: center; padding: 5px; border-bottom: 2px solid var(--black);
+  text-transform: uppercase;
+}
+
+.mock-float {
+  position: absolute; background: var(--white);
+  border: var(--border); padding: 8px 12px;
+  box-shadow: var(--shadow); font-weight: 900;
+  display: flex; align-items: center; gap: 6px; font-size: 0.75rem;
+  animation: float 3s ease infinite;
+}
+.mock-float.f1 { top: -16px; right: -32px; animation-delay: 0s; }
+.mock-float.f2 { bottom: 20px; left: -40px; animation-delay: 1.4s; }
+
+/* ═══════════════════════════════
+   TRUST STRIP — 黒帯（C-1, C-2修正）
+═══════════════════════════════ */
+.trust-strip {
+  background: var(--black);
+  border-bottom: var(--border);
+  padding: 18px 0;
+}
+.trust-strip-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--white); font-size: 0.82rem; font-weight: 800;
+  padding: 6px 28px; letter-spacing: 0.04em;
+}
+.trust-item .ti { color: var(--g); font-size: 1rem; }
+.trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.2); }
+
+/* ═══════════════════════════════
+   PAIN
+═══════════════════════════════ */
+.pain-sec { padding: 80px 0; background: var(--offwhite); border-bottom: var(--border); }
+.pain-segment-wrap { text-align: center; margin-bottom: 36px; margin-top: 32px; }
+.pain-segment-btns {
+  display: inline-flex;
+  border: var(--border); overflow: hidden;
+}
+.pain-seg-btn {
+  padding: 10px 28px; font-size: 0.85rem; font-weight: 900;
+  cursor: pointer; border: none;
+  background: var(--smoke); color: var(--black); /* W-2: 透明→#ebebeb、gray→black で「押せる」を明示 */
+  transition: all 0.15s; letter-spacing: 0.04em;
+}
+.pain-seg-btn:hover { background: #d4d4d4; } /* W-2: ホバーフィードバック追加 */
+.pain-seg-btn:not(:last-child) { border-right: var(--border-thin); }
+.pain-seg-btn.active { background: var(--black); color: var(--white); }
+.pain-cards-wrap { display: none; }
+.pain-cards-wrap.active { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+.pain-card {
+  background: var(--white);
+  border: var(--border-thin);
+  border-right: none;
+  padding: 32px 24px;
+  position: relative; overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.pain-card:last-child { border-right: var(--border-thin); }
+.pain-card:hover { transform: translate(-3px,-3px); box-shadow: var(--shadow-lg); z-index: 1; }
+.pain-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--black);
+}
+.pain-num   { font-size: 3rem; font-weight: 900; color: var(--smoke); line-height: 1; margin-bottom: 8px; }
+.pain-icon  { font-size: 1.8rem; color: var(--black); margin-bottom: 10px; }
+.pain-title { font-size: 1rem; font-weight: 900; color: var(--black); margin-bottom: 8px; line-height: 1.4; }
+.pain-body  { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
+.pain-arrow { margin: 40px auto 0; text-align: center; }
+.pain-arrow-icon { font-size: 3rem; color: var(--g); }
+.pain-arrow-text { font-size: 1.05rem; font-weight: 900; color: var(--black); margin-top: 6px; letter-spacing: 0.02em; }
+
+/* ═══════════════════════════════
+   HOW IT WORKS（W-3修正: LINE申込み流れ追加）
+═══════════════════════════════ */
+.how-sec { padding: 80px 0; background: var(--white); border-bottom: var(--border); }
+.steps-wrap {
+  display: flex; gap: 0; margin-top: 44px;
+  border: var(--border); position: relative;
+}
+.step-item {
+  flex: 1; padding: 36px 28px;
+  border-right: var(--border-thin);
+  position: relative;
+}
+.step-item:last-child { border-right: none; }
+.step-num-wrap {
+  width: 64px; height: 64px;
+  background: var(--g); border: var(--border);
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.step-num   { font-size: 1.6rem; font-weight: 900; color: var(--white); line-height: 1; }
+.step-icon  { font-size: 1.5rem; color: var(--black); margin-bottom: 10px; }
+.step-title { font-size: 1.05rem; font-weight: 900; color: var(--black); margin-bottom: 8px; }
+.step-body  { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
+.step-time-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--g); color: var(--white);
+  font-size: 0.72rem; font-weight: 900;
+  padding: 3px 10px; margin-top: 12px; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--black);
+}
+.step-line-note {
+  margin-top: 8px; font-size: 0.7rem; color: var(--gray); font-weight: 700;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+
+/* W-3: セミナー申込みフロー補足ボックス */
+.seminar-flow-box {
+  margin-top: 32px; border: var(--border); background: var(--offwhite); padding: 24px 28px;
+}
+.seminar-flow-title {
+  font-size: 0.88rem; font-weight: 900; color: var(--black);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.seminar-flow-title .ti { color: var(--g); }
+.seminar-flow-steps {
+  display: flex; gap: 0; align-items: stretch;
+  border: var(--border-thin);
+}
+.seminar-flow-step {
+  flex: 1; padding: 14px 16px; background: var(--white);
+  border-right: var(--border-thin); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.seminar-flow-step:last-child { border-right: none; }
+.seminar-flow-step-num {
+  width: 24px; height: 24px; background: var(--g); color: var(--white);
+  border: 1.5px solid var(--black); border-radius: 50%;
+  font-size: 0.72rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+}
+.seminar-flow-step-label { font-size: 0.78rem; font-weight: 800; color: var(--black); line-height: 1.4; }
+.seminar-flow-step-sub { font-size: 0.68rem; color: var(--gray); line-height: 1.4; }
+.seminar-flow-arrow { flex-shrink: 0; display: flex; align-items: center; padding: 0 4px; color: var(--gray); font-size: 1.1rem; } /* C-1: #999→#555 */
+
+/* ═══════════════════════════════
+   FEATURES
+═══════════════════════════════ */
+.feature-sec { padding: 80px 0; background: var(--offwhite); border-bottom: var(--border); }
+.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 44px; border: var(--border); }
+.feature-card {
+  padding: 36px 28px;
+  border-right: var(--border-thin);
+  background: var(--white);
+  position: relative; overflow: hidden;
+  transition: background 0.15s;
+}
+.feature-card:last-child { border-right: none; }
+.feature-card:hover { background: var(--offwhite); }
+.feature-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+  background: var(--g);
+}
+.feature-icon-wrap {
+  width: 56px; height: 56px;
+  border: var(--border-thin);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; background: var(--offwhite);
+}
+.feature-icon-wrap .ti { font-size: 1.8rem; color: var(--black); }
+.feature-result-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--g); color: var(--white);
+  font-size: 0.74rem; font-weight: 900;
+  padding: 4px 12px; margin-bottom: 12px;
+  border: 1.5px solid var(--black);
+  border-radius: var(--radius-sm);
+}
+.feature-title { font-size: 1.05rem; font-weight: 900; color: var(--black); margin-bottom: 8px; line-height: 1.3; }
+.feature-body  { font-size: 0.85rem; color: var(--gray); line-height: 1.75; }
+
+/* ═══════════════════════════════
+   RESULT TYPES
+═══════════════════════════════ */
+.result-sec { padding: 80px 0; background: var(--white); border-bottom: var(--border); }
+.result-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 44px; border: var(--border); }
+.result-card {
+  padding: 28px 20px; text-align: center;
+  border-right: var(--border-thin);
+  position: relative; overflow: hidden;
+  transition: background 0.15s;
+}
+.result-card:last-child { border-right: none; }
+.result-card:hover { background: var(--offwhite); }
+.result-card.featured { background: var(--black); color: var(--white); }
+.result-card.featured:hover { background: var(--dkm); }
+.result-card.featured::before {
+  content: '最多タイプ';
+  position: absolute; top: 0; left: 0; right: 0;
+  background: var(--g); color: var(--white); font-size: 0.68rem; font-weight: 900;
+  padding: 4px; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.result-emoji { font-size: 2.4rem; margin-bottom: 10px; margin-top: 8px; }
+.result-level { font-size: 0.64rem; font-weight: 900; letter-spacing: 0.14em; color: #767676; margin-bottom: 4px; } /* C-1: #999→#767676 */
+.result-card.featured .result-level { color: var(--g); }
+.result-type  { font-size: 1rem; font-weight: 900; color: var(--black); margin-bottom: 8px; }
+.result-card.featured .result-type { color: var(--white); }
+.result-desc  { font-size: 0.78rem; color: var(--gray); line-height: 1.65; margin-bottom: 14px; }
+.result-card.featured .result-desc { color: var(--silver); }
+.result-goto  {
+  font-size: 0.74rem; font-weight: 900; color: var(--black);
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  border-top: 1.5px solid var(--smoke); padding-top: 12px;
+}
+.result-card.featured .result-goto { color: var(--g); border-color: rgba(255,255,255,0.15); }
+
+/* ═══════════════════════════════
+   TRUST / SUPPORT（C-2, C-3修正）
+═══════════════════════════════ */
+.trust-sec { padding: 80px 0; background: var(--offwhite); border-bottom: var(--border); }
+.trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 44px; }
+.trust-list { display: flex; flex-direction: column; gap: 0; border: var(--border); }
+.trust-item-card {
+  display: flex; gap: 16px; padding: 24px 20px;
+  border-bottom: var(--border-thin);
+  background: var(--white);
+  transition: background 0.15s;
+}
+.trust-item-card:last-child { border-bottom: none; }
+.trust-item-card:hover { background: var(--offwhite); }
+.trust-ic {
+  width: 44px; height: 44px; border: var(--border-thin); flex-shrink: 0;
+  background: var(--g); display: flex; align-items: center; justify-content: center;
+}
+.trust-ic .ti { font-size: 1.4rem; color: var(--white); }
+.trust-item-title { font-size: 0.95rem; font-weight: 900; color: var(--black); margin-bottom: 4px; }
+.trust-item-body  { font-size: 0.83rem; color: var(--gray); line-height: 1.7; }
+.trust-cert-wrap {
+  background: var(--white); border: var(--border);
+  padding: 28px;
+}
+.trust-cert-title { font-size: 1rem; font-weight: 900; color: var(--black); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+.trust-cert-list { display: flex; flex-direction: column; gap: 12px; }
+.trust-cert-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.88rem; color: var(--gray); font-weight: 700;
+  padding-bottom: 12px; border-bottom: 1px solid var(--smoke);
+}
+.trust-cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+.trust-cert-item .ti { color: var(--g); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+/* C-3修正: 統計バッジを実績値ベースに */
+.trust-stat-row {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 0;
+  margin-top: 20px; border: var(--border);
+}
+.trust-stat-item {
+  text-align: center; background: var(--black); padding: 16px 10px;
+  border-right: 1.5px solid rgba(255,255,255,0.15);
+}
+.trust-stat-item:last-child { border-right: none; }
+.trust-stat-num   { font-size: 1.6rem; font-weight: 900; color: var(--g); display: block; }
+.trust-stat-label { font-size: 0.68rem; color: var(--silver); margin-top: 4px; line-height: 1.4; }
+.trust-quote {
+  background: var(--black); border: var(--border);
+  padding: 24px 26px; margin-top: 20px;
+  position: relative;
+}
+.trust-quote::before {
+  content: '"';
+  position: absolute; top: -16px; left: 20px;
+  font-size: 4rem; color: var(--g); font-family: Georgia, serif; line-height: 1;
+}
+.trust-quote-text   { font-size: 0.95rem; color: #dddddd; font-weight: 700; line-height: 1.9; } /* W-5: 0.9→0.95rem / #ccc→#ddd / 1.75→1.9 */
+.trust-quote-author { font-size: 0.75rem; color: #bbbbbb; margin-top: 10px; } /* C-2: 黒背景上 #999→#bbb */
+
+/* ═══════════════════════════════
+   FAQ（W-2修正: 解約FAQ追加）
+═══════════════════════════════ */
+.faq-sec  { padding: 80px 0; background: var(--white); border-bottom: var(--border); }
+.faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 44px; border: var(--border); }
+.faq-item {
+  background: var(--white);
+  border-bottom: var(--border-thin);
+  overflow: hidden;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-item.open { background: var(--offwhite); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 28px; cursor: pointer; gap: 12px; user-select: none;
+  transition: background 0.15s;
+}
+.faq-q:hover { background: var(--smoke); } /* W-3: ホバー背景で「押せる」を明示 */
+.faq-q-text {
+  font-size: 0.95rem; font-weight: 900; color: var(--black);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.faq-q-icon {
+  background: var(--black); color: var(--white);
+  width: 24px; height: 24px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 900; letter-spacing: 0;
+}
+.faq-item.open .faq-q-icon { background: var(--g); }
+.faq-toggle {
+  color: var(--black); font-size: 1.5rem; /* W-3: 1.2→1.5rem に拡大 */
+  transition: transform 0.2s, color 0.2s; flex-shrink: 0;
+  width: 28px; height: 28px; /* W-3: 正方形タップ領域を明示 */
+  display: flex; align-items: center; justify-content: center;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); color: var(--g); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a-inner { padding: 0 28px 22px 64px; font-size: 0.9rem; color: var(--gray); line-height: 1.8; }
+
+/* ═══════════════════════════════
+   PRICING（C-5, W-2修正）
+═══════════════════════════════ */
+.pricing-sec  { padding: 80px 0; background: var(--offwhite); border-bottom: var(--border); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 0; margin-top: 44px; border: var(--border); align-items: start; }
+.price-card {
+  padding: 32px 24px;
+  border-right: var(--border-thin);
+  background: var(--white);
+  position: relative;
+}
+.price-card:last-child { border-right: none; }
+.price-card.featured {
+  background: var(--black); color: var(--white);
+}
+.price-card-badge {
+  display: block; text-align: center;
+  background: var(--g); color: var(--white);
+  font-size: 0.72rem; font-weight: 900;
+  padding: 8px; margin: -32px -24px 24px; letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--black);
+}
+.price-header    { margin-bottom: 20px; }
+.price-plan-name { font-size: 0.72rem; font-weight: 900; color: #767676; margin-bottom: 6px; letter-spacing: 0.12em; text-transform: uppercase; } /* C-1: #999→#767676 */
+.price-card.featured .price-plan-name { color: var(--silver); }
+.price-amount    { font-size: 2.6rem; font-weight: 900; color: var(--black); line-height: 1; }
+.price-card.featured .price-amount { color: var(--white); }
+.price-amount span { font-size: 1rem; color: #767676; font-weight: 400; } /* C-1: #999→#767676 */
+.price-desc      { font-size: 0.83rem; color: var(--gray); margin-top: 8px; line-height: 1.6; }
+.price-card.featured .price-desc { color: var(--silver); }
+.price-divider   { height: 2px; background: var(--smoke); margin: 18px 0; }
+.price-card.featured .price-divider { background: rgba(255,255,255,0.15); }
+.price-features  { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.price-feat {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 0.84rem; color: var(--gray);
+}
+.price-card.featured .price-feat { color: var(--silver); }
+.price-feat .ti { color: var(--g); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.price-feat.dim .ti { color: var(--silver); }
+.price-feat.dim {
+  opacity: 0.55;                        /* W-4: 0.45→0.55（打ち消し線が読める明るさに） */
+  color: #999;                          /* W-4: テキストも明示的に薄色化 */
+  text-decoration: line-through;        /* W-4: SaaS標準の打ち消し線で「含まれない」を明示 */
+  text-decoration-color: rgba(0,0,0,0.3);
+}
+.price-card.featured .price-feat.dim .ti { color: rgba(255,255,255,0.3); }
+.price-card.featured .price-feat.dim {
+  color: rgba(255,255,255,0.35);        /* W-4: 黒背景カード内の打ち消しテキスト色 */
+  text-decoration-color: rgba(255,255,255,0.2);
+}
+
+/* W-2: いつでも解約OKマイクロコピー */
+.price-cancellation-note {
+  font-size: 0.72rem; color: var(--gray); /* C-1: #999→#555 */
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 10px; justify-content: center;
+}
+.price-cancellation-note .ti { color: var(--g); }
+
+/* ROI Box */
+.roi-box {
+  background: var(--black); border: var(--border);
+  padding: 32px; margin-top: 32px;
+}
+.roi-title { font-size: 1rem; font-weight: 900; margin-bottom: 6px; color: var(--white); display: flex; align-items: center; gap: 8px; }
+.roi-title .ti { color: var(--g); }
+.roi-note  { font-size: 0.76rem; color: #bbbbbb; margin-bottom: 20px; line-height: 1.6; } /* C-1: 黒背景上 #999→#bbb */
+.roi-grid  { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1.5px solid rgba(255,255,255,0.15); }
+.roi-item  { text-align: center; padding: 18px 12px; border-right: 1.5px solid rgba(255,255,255,0.15); }
+.roi-item:last-child { border-right: none; }
+.roi-num   { font-size: 1.8rem; font-weight: 900; color: var(--g); }
+.roi-label { font-size: 0.7rem; color: #bbbbbb; margin-top: 4px; line-height: 1.4; } /* C-1: 黒背景上 #999→#bbb */
+.roi-disclaimer { font-size: 0.7rem; color: #bbbbbb; margin-top: 14px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; } /* C-1: 黒背景上 #999→#bbb */
+
+/* ═══════════════════════════════
+   FINAL CTA
+═══════════════════════════════ */
+.final-cta {
+  padding: 96px 0;
+  background: var(--black);
+  position: relative; overflow: hidden;
+  border-bottom: var(--border);
+}
+.final-cta-bg-text {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: clamp(100px, 18vw, 220px); font-weight: 900;
+  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.04);
+  white-space: nowrap; pointer-events: none; user-select: none; letter-spacing: -0.04em;
+}
+.final-cta-inner { text-align: center; position: relative; z-index: 1; }
+.final-cta-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: var(--silver); font-size: 0.74rem; font-weight: 900;
+  padding: 6px 16px; margin-bottom: 24px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: var(--radius-sm);
+}
+.final-cta-h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; color: var(--white);
+  line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.01em;
+}
+.final-cta-h2 em {
+  font-style: normal;
+  background: var(--g); color: var(--white);
+  padding: 0 6px;
+}
+.final-cta-sub { font-size: 1rem; color: #bbbbbb; margin-bottom: 40px; line-height: 1.8; } /* C-2: 黒背景上 #999→#bbb */
+.final-cta-btn-wrap { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; align-items: center; }
+.final-cta-micro {
+  font-size: 0.76rem; color: #bbbbbb; margin-top: 18px; /* C-2: 黒背景上 #999→#bbb */
+  display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;
+}
+.final-cta-micro .ti { color: var(--g); }
+.final-cta-pc-note {
+  margin-top: 16px; font-size: 0.76rem; color: rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.final-cta-pc-note a { color: var(--g); text-decoration: underline; }
+
+/* ═══════════════════════════════
+   FOOTER（C-4修正: 特商法情報記載）
+═══════════════════════════════ */
+.footer { background: var(--black); padding: 48px 0 20px; border-top: var(--border); }
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 40px; flex-wrap: wrap; margin-bottom: 32px;
+}
+.footer-brand-name {
+  display: inline-block;
+  border: 2.5px solid var(--white);
+  padding: 5px 12px;
+  font-size: 1rem; font-weight: 900; color: var(--white);
+  letter-spacing: 0.04em; margin-bottom: 10px;
+}
+.footer-tagline { font-size: 0.82rem; color: #bbbbbb; line-height: 1.6; max-width: 200px; } /* C-2: 黒背景上 #999→#bbb */
+.footer-links  { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 0.82rem; color: #bbbbbb; transition: color 0.15s; } /* C-2: 黒背景上 #999→#bbb */
+.footer-links a:hover { color: var(--white); }
+.footer-links-title { font-size: 0.68rem; font-weight: 900; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; margin-bottom: 10px; }
+.footer-services { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.footer-svc {
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 4px 10px; font-size: 0.72rem; color: #bbbbbb; /* C-2: 黒背景上 #999→#bbb */
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* C-4: 特商法情報エリア */
+.footer-tokusho {
+  border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; margin-bottom: 12px;
+}
+.footer-tokusho-title {
+  font-size: 0.68rem; font-weight: 900; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px;
+}
+.footer-tokusho-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 24px;
+}
+.footer-tokusho-item {
+  font-size: 0.72rem; color: var(--lgray); line-height: 1.6;
+}
+.footer-tokusho-item span { color: var(--gray); display: block; font-size: 0.64rem; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.12); padding-top: 18px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.footer-copy { font-size: 0.72rem; color: var(--gray); }
+
+/* ═══════════════════════════════
+   SP STICKY CTA
+═══════════════════════════════ */
+.sp-sticky {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: var(--white); border-top: var(--border);
+  padding: 10px 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  display: none;
+}
+@media (max-width: 767px) { .sp-sticky { display: flex; gap: 10px; align-items: center; } }
+.sp-sticky-text { flex: 1; font-size: 0.75rem; color: var(--gray); line-height: 1.3; }
+.sp-sticky-text strong { color: var(--black); display: block; font-size: 0.85rem; font-weight: 900; }
+.sp-sticky .btn { padding: 11px 18px; font-size: 0.85rem; white-space: nowrap; }
+
+/* ═══════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════ */
+@media (max-width: 767px) {
+  .hero { padding: 40px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-visual { order: -1; }
+  .mock-wrap { width: 100%; max-width: 280px; }
+  .mock-float.f1 { right: -8px; top: -10px; }
+  .mock-float.f2 { left: -8px; }
+  .trust-strip-inner { gap: 0; }
+  .trust-sep { display: none; }
+  .trust-item { padding: 6px 16px; font-size: 0.78rem; }
+  .pain-cards-wrap.active { grid-template-columns: 1fr; }
+  .pain-card { border-right: var(--border-thin); border-bottom: none; }
+  .pain-card:last-child { border-bottom: var(--border-thin); }
+  .steps-wrap { flex-direction: column; }
+  .step-item { border-right: none; border-bottom: var(--border-thin); }
+  .step-item:last-child { border-bottom: none; }
+  .seminar-flow-steps { flex-direction: column; }
+  .seminar-flow-step { border-right: none; border-bottom: var(--border-thin); position: relative; }
+  .seminar-flow-step:last-child { border-bottom: none; }
+  /* W-6: 矢印の代替 — 各ステップ下部から伸びる縦破線でフロー感を維持 */
+  .seminar-flow-step::after {
+    content: '';
+    position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 14px;
+    border-left: 2px dashed var(--g);
+    z-index: 1;
+  }
+  .seminar-flow-step:last-child::after { display: none; }
+  .seminar-flow-arrow { display: none; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-card { border-right: none; border-bottom: var(--border-thin); }
+  .feature-card:last-child { border-bottom: none; }
+  .result-grid { grid-template-columns: repeat(2,1fr); }
+  .result-card { border-right: none; border-bottom: var(--border-thin); }
+  .result-card:nth-child(odd) { border-right: var(--border-thin); }
+  .result-card:last-child, .result-card:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-stat-row { grid-template-columns: repeat(2,1fr); }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card { border-right: none; border-bottom: var(--border-thin); }
+  .price-card:last-child { border-bottom: none; }
+  .price-card.featured { order: -1; }
+  .roi-grid { grid-template-columns: repeat(3,1fr); }
+  .final-cta-btn-wrap { flex-direction: column; align-items: center; }
+  .footer-inner { flex-direction: column; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-tokusho-grid { grid-template-columns: 1fr 1fr; }
+  body { padding-bottom: 72px; }
+  .header-nav { display: none; }
+  .header-cta { display: none; }
+  .ham-btn { display: flex; } /* C-4: SP時ハンバーガー表示 */
+  .hero-bg-text { display: none; }       /* W-1: SP時コンテンツ重なり防止 */
+  .final-cta-bg-text { display: none; }  /* W-1: SP時同上 */
+}
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 1.85rem; }
+  .result-grid { grid-template-columns: 1fr; }
+  .roi-grid { grid-template-columns: 1fr; }
+  .roi-item { border-right: none; border-bottom: 1.5px solid rgba(255,255,255,0.1); }
+  .roi-item:last-child { border-bottom: none; }
+  .trust-stat-row { grid-template-columns: 1fr; }
+  .trust-stat-item { border-right: none; border-bottom: 1.5px solid rgba(255,255,255,0.1); }
+  .footer-tokusho-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-logo"><span class="logo"><span class="logo-hira">はじめて</span><span class="logo-dot">.</span><span class="logo-ai">AI</span></span></div>
+    <nav class="header-nav pc">
+      <a href="#how">診断の流れ</a>
+      <a href="#features">特徴</a>
+      <a href="#pricing">プラン</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta pc">
+      <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-line" target="_blank" rel="noopener">
+        <span class="line-icon-badge"><i class="ti ti-brand-line"></i></span>
+        LINEで無料診断
+      </a>
+    </div>
+    <!-- C-4: SPハンバーガーボタン -->
+    <button class="ham-btn" id="hamBtn" onclick="toggleDrawer()" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- C-4: ドロワーオーバーレイ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- C-4: ドロワーメニュー -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー">
+  <div class="drawer-header">
+    <div class="drawer-logo">はじめて<span>.AI</span></div>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="メニューを閉じる"><i class="ti ti-x"></i></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#how" onclick="closeDrawer()"><i class="ti ti-list-check"></i>診断の流れ</a>
+    <a href="#features" onclick="closeDrawer()"><i class="ti ti-star"></i>特徴</a>
+    <a href="#pricing" onclick="closeDrawer()"><i class="ti ti-credit-card"></i>プラン・料金</a>
+    <a href="#faq" onclick="closeDrawer()"><i class="ti ti-help-circle"></i>よくある質問</a>
+  </nav>
+  <div class="drawer-cta">
+    <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-line" target="_blank" rel="noopener" onclick="closeDrawer()">
+      <span class="line-icon-badge"><i class="ti ti-brand-line"></i></span>
+      LINEで無料診断する
+    </a>
+    <div class="drawer-cta-sub">30秒・完全無料・いつでも解除OK</div>
+  </div>
+</div>
+
+<!-- ═══ TICKER MARQUEE ═══ -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI NATIVE DIAGNOSIS</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 完全無料・登録不要</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LINE完全完結</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 30秒で診断完了</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 4レベル判定</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> あなた専用ロードマップ</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DX推進に</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> AI NATIVE DIAGNOSIS</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 完全無料・登録不要</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> LINE完全完結</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 30秒で診断完了</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> 4レベル判定</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> あなた専用ロードマップ</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> DX推進に</span>
+  </div>
+</div>
+
+<!-- ═══ HERO / FV ═══ -->
+<section class="hero lw" id="top">
+  <div class="inner">
+    <div class="hero-grid">
+      <!-- Left: copy -->
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-tag">完全無料</span>
+          <span class="hero-free-tag"><i class="ti ti-clock"></i> 所要30秒</span>
+        </div>
+        <h1 class="hero-h1">
+          あなたの<span class="accent">AIネイティブ度</span>を測定して<br>
+          <span class="underline-g">最適な活用ルート</span>がわかる。
+        </h1>
+        <p class="hero-sub">
+          「AIって気になるけど、自分はどこから始めれば？」<br>
+          たった5問に答えるだけで、あなた専用のロードマップを自動提案。<br>
+          もう迷わない。今日から動き出せる。
+        </p>
+        <!-- C-1修正: 「多くの方にご活用済み」削除→別の信頼訴求に差し替え -->
+        <div class="hero-trust-note">
+          <div class="hero-trust-item"><i class="ti ti-shield-check"></i> 登録・個人情報不要</div>
+          <div class="hero-trust-item"><i class="ti ti-brand-line"></i> LINE公式で安心完結</div>
+          <div class="hero-trust-item"><i class="ti ti-clock"></i> たった30秒で完了</div>
+        </div>
+        <div class="line-cta-wrap">
+          <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="line-cta-main" target="_blank" rel="noopener">
+            <span class="line-icon-badge"><i class="ti ti-brand-line"></i></span>
+            LINEで今すぐ無料診断スタート
+            <i class="ti ti-arrow-right"></i>
+          </a>
+          <div class="line-cta-sub">
+            <i class="ti ti-shield-check"></i>
+            登録不要・1クリックで診断スタート・いつでも解除OK
+          </div>
+          <div class="pc-sub-cta pc">
+            <i class="ti ti-device-desktop"></i>
+            PCからの場合は <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">こちら（LINE QRコード）</a> からご参加ください
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: W-4修正 疑似診断体験モック → 最終ステップでLINE誘導 -->
+      <div class="hero-visual fade-up fade-up-2">
+        <div class="mock-wrap">
+          <div class="mock-float f1">
+            <i class="ti ti-trending-up" style="color:var(--g)"></i> レベル判定
+          </div>
+          <div class="mock-float f2">
+            <i class="ti ti-map" style="color:var(--black)"></i> ルート提案
+          </div>
+          <div class="mock-phone" id="mockPhone">
+            <div class="mock-trial-badge">疑似体験デモ — 実際はLINEで診断</div>
+            <div class="mock-header">
+              <i class="ti ti-brand-line" style="color:var(--g);font-size:1rem"></i>
+              <div class="mock-logo">はじめて<span>.AI</span></div>
+            </div>
+            <div class="mock-body">
+              <div id="mockQuiz">
+                <div class="mock-progress-wrap">
+                  <div class="mock-progress-label">Q3 / 5</div>
+                  <div class="mock-progress-bar"><div class="mock-progress-fill" id="mockProgressFill"></div></div>
+                </div>
+                <div class="mock-q-label">QUESTION 3</div>
+                <div class="mock-q-text">AIツールを業務で活用したことはありますか？</div>
+                <div class="mock-choice" onclick="selectChoice(this)">
+                  <div class="choice-dot"></div>まだ使ったことがない
+                </div>
+                <div class="mock-choice selected" onclick="selectChoice(this)">
+                  <div class="choice-dot"></div>試したことはある
+                </div>
+                <div class="mock-choice" onclick="selectChoice(this)">
+                  <div class="choice-dot"></div>日常的に活用している
+                </div>
+                <div style="margin-top:10px">
+                  <button id="mockNextBtn" onclick="showMockResult()" style="width:100%;background:var(--black);color:var(--white);border:none;padding:9px;font-size:0.75rem;font-weight:900;cursor:pointer;letter-spacing:0.04em;">
+                    次へ進む <i class="ti ti-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mock-result" id="mockResult">
+                <div class="mock-result-level">LEVEL 2 / AI TRYER</div>
+                <div class="mock-result-type">🔥 AIトライヤー</div>
+                <div class="mock-result-score">
+                  <span class="num">72</span>
+                  <span class="unit">/ 100点</span>
+                </div>
+                <div class="mock-result-bar"><div class="mock-result-fill"></div></div>
+                <div class="mock-result-desc">実践ワークとプロンプト集で一気に加速できます。プレミアムプランが最適です。</div>
+                <!-- W-4: LINE誘導CTA -->
+                <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="mock-result-cta" target="_blank" rel="noopener">
+                  <i class="ti ti-brand-line"></i> LINEで本番診断を受ける
+                </a>
+                <div class="mock-result-note">※これはデモです。実際の診断はLINEで無料で受けられます</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg-text">AI</div>
+</section>
+
+<!-- ═══ TRUST STRIP（C-1, C-2修正）===  -->
+<div class="trust-strip lw">
+  <div class="trust-strip-inner inner">
+    <div class="trust-item"><i class="ti ti-shield-check"></i> 個人情報入力なし</div>
+    <div class="trust-sep pc"></div>
+    <div class="trust-item"><i class="ti ti-clock"></i> 回答はたった5問</div>
+    <div class="trust-sep pc"></div>
+    <!-- C-2修正: 「AI専門家監修」→「はじめて.AIチームが設計・運営」 -->
+    <div class="trust-item"><i class="ti ti-users"></i> はじめて.AIチームが設計・運営</div>
+    <div class="trust-sep pc"></div>
+    <div class="trust-item"><i class="ti ti-school"></i> セミナー実績多数</div>
+    <div class="trust-sep pc"></div>
+    <div class="trust-item"><i class="ti ti-brand-line"></i> LINE公式で完全完結</div>
+  </div>
+</div>
+
+<!-- ═══ PAIN ═══ -->
+<section class="pain-sec lw" id="pain">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">こんな悩みはありませんか？</p>
+    <h2 class="sec-title">AIを始めたいのに、<em>一歩が踏み出せない</em>理由</h2>
+    <p class="sec-sub">個人の方も、組織・法人の方も、同じ壁にぶつかっています。</p>
+  </div>
+  <div class="inner">
+    <div class="pain-segment-wrap">
+      <div class="pain-segment-btns">
+        <button class="pain-seg-btn active" onclick="switchPain('personal', this)">
+          <i class="ti ti-user"></i> 個人・フリーランス
+        </button>
+        <button class="pain-seg-btn" onclick="switchPain('biz', this)">
+          <i class="ti ti-building"></i> 企業・法人担当者
+        </button>
+      </div>
+    </div>
+    <div class="pain-cards-wrap active" id="pain-personal">
+      <div class="pain-card fade-up">
+        <div class="pain-num">01</div>
+        <div class="pain-icon"><i class="ti ti-question-mark"></i></div>
+        <div class="pain-title">何から始めればいいのかわからない</div>
+        <div class="pain-body">ChatGPT、Gemini、Claude…ツールは多すぎて選べない。自分に何が合うのか全く見当がつかない。</div>
+      </div>
+      <div class="pain-card fade-up fade-up-1">
+        <div class="pain-num">02</div>
+        <div class="pain-icon"><i class="ti ti-scale"></i></div>
+        <div class="pain-title">無料と有料、どちらが自分に合うか迷う</div>
+        <div class="pain-body">無料で十分か、有料プランに投資すべきか。費用対効果が読めなくて判断できずにいる。</div>
+      </div>
+      <div class="pain-card fade-up fade-up-2">
+        <div class="pain-num">03</div>
+        <div class="pain-icon"><i class="ti ti-device-laptop-off"></i></div>
+        <div class="pain-title">周りが先に進んでいる焦りがある</div>
+        <div class="pain-body">社内や業界でAI活用が進む中、自分だけ取り残されている感覚。でも何をすればいいかわからない。</div>
+      </div>
+    </div>
+    <div class="pain-cards-wrap" id="pain-biz">
+      <div class="pain-card fade-up">
+        <div class="pain-num">01</div>
+        <div class="pain-icon"><i class="ti ti-building-community"></i></div>
+        <div class="pain-title">社内でAI推進を任されたが、どこから研修すればいいかわからない</div>
+        <div class="pain-body">会社からAI活用推進のミッションを与えられたものの、社員のレベルもバラバラで何から始めるべきか途方に暮れている。</div>
+      </div>
+      <div class="pain-card fade-up fade-up-1">
+        <div class="pain-num">02</div>
+        <div class="pain-icon"><i class="ti ti-mood-sad"></i></div>
+        <div class="pain-title">AIツールを導入したが、期待通りの効果が出ていない</div>
+        <div class="pain-body">コストをかけてAIを導入したのに、現場が使いこなせず形骸化。運用改善の糸口が見つからない。</div>
+      </div>
+      <div class="pain-card fade-up fade-up-2">
+        <div class="pain-num">03</div>
+        <div class="pain-icon"><i class="ti ti-rocket-off"></i></div>
+        <div class="pain-title">AI事業を立ち上げたいが、技術選定・パートナー探しで行き詰まっている</div>
+        <div class="pain-body">AIを使った新規事業を検討しているが、技術の選び方・開発パートナーの探し方が全くわからない。</div>
+      </div>
+    </div>
+    <div class="pain-arrow" style="margin-top:40px">
+      <div class="pain-arrow-icon"><i class="ti ti-arrow-narrow-down"></i></div>
+      <div class="pain-arrow-text">AIネイティブ度診断が、その迷いを解決します</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS（W-3修正: LINE申込みフロー補足）=== -->
+<section class="how-sec lw" id="how">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">診断の流れ</p>
+    <h2 class="sec-title">たった<em>3ステップ</em>で完了</h2>
+    <p class="sec-sub">スマホから30秒。LINEアプリで完全完結します。</p>
+  </div>
+  <div class="inner">
+    <div class="steps-wrap fade-up">
+      <div class="step-item">
+        <div class="step-num-wrap"><span class="step-num">1</span></div>
+        <div class="step-icon"><i class="ti ti-brand-line"></i></div>
+        <div class="step-title">LINEで友だち追加</div>
+        <div class="step-body">下のボタンからはじめて.AIのLINE公式アカウントを友だち追加。追加は無料、いつでも解除できます。</div>
+        <div class="step-time-badge"><i class="ti ti-clock"></i> 約5秒</div>
+        <div class="step-line-note"><i class="ti ti-shield-check"></i> 無料・いつでも解除OK</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-wrap"><span class="step-num">2</span></div>
+        <div class="step-icon"><i class="ti ti-forms"></i></div>
+        <div class="step-title">5問に答える</div>
+        <div class="step-body">AIの使用経験・仕事の課題・学習スタイルなど、LINEのチャット上でシンプルな質問に答えるだけ。</div>
+        <div class="step-time-badge"><i class="ti ti-clock"></i> 約25秒</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-wrap"><span class="step-num">3</span></div>
+        <div class="step-icon"><i class="ti ti-map"></i></div>
+        <div class="step-title">最適ルートへ誘導</div>
+        <div class="step-body">あなたのタイプに合った学習プランを即時判定。LINEのリッチメニューから無料・有料どちらが最適かを自動提案。</div>
+        <div class="step-time-badge"><i class="ti ti-bolt"></i> 即時判定</div>
+      </div>
+    </div>
+
+    <!-- W-3: セミナー申込みフロー補足ボックス -->
+    <div class="seminar-flow-box fade-up">
+      <div class="seminar-flow-title">
+        <i class="ti ti-calendar-event"></i> セミナーへの参加方法（LINE公式から完結）
+      </div>
+      <div class="seminar-flow-steps">
+        <div class="seminar-flow-step">
+          <div class="seminar-flow-step-num">1</div>
+          <div class="seminar-flow-step-label">LINE友だち追加</div>
+          <div class="seminar-flow-step-sub">無料・30秒</div>
+        </div>
+        <div class="seminar-flow-arrow"><i class="ti ti-chevron-right"></i></div>
+        <div class="seminar-flow-step">
+          <div class="seminar-flow-step-num">2</div>
+          <div class="seminar-flow-step-label">セミナー一覧を確認</div>
+          <div class="seminar-flow-step-sub">LINEリッチメニューから</div>
+        </div>
+        <div class="seminar-flow-arrow"><i class="ti ti-chevron-right"></i></div>
+        <div class="seminar-flow-step">
+          <div class="seminar-flow-step-num">3</div>
+          <div class="seminar-flow-step-label">予約・決済</div>
+          <div class="seminar-flow-step-sub">LINE内で完結</div>
+        </div>
+        <div class="seminar-flow-arrow"><i class="ti ti-chevron-right"></i></div>
+        <div class="seminar-flow-step">
+          <div class="seminar-flow-step-num">4</div>
+          <div class="seminar-flow-step-label">セミナー参加</div>
+          <div class="seminar-flow-step-sub">オンライン・オフライン</div>
+        </div>
+      </div>
+      <div style="margin-top:14px; text-align:center">
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-line" target="_blank" rel="noopener" style="display:inline-flex">
+          <span class="line-icon-badge"><i class="ti ti-brand-line"></i></span>
+          LINEでセミナー日程を確認する
+        </a>
+        <div style="font-size:0.72rem;color:var(--gray);margin-top:8px">
+          オンラインセミナー 3,000円/回 ・ オフラインセミナー 15,000円/回（プレミアム会員は無料）
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="feature-sec lw" id="features">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">診断の強み</p>
+    <h2 class="sec-title">ただの「性格診断」とは<em>違う</em>、3つの理由</h2>
+    <p class="sec-sub">AIネイティブ度診断は、行動変容につながるよう設計されています。</p>
+  </div>
+  <div class="inner">
+    <div class="feature-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon-wrap"><i class="ti ti-layers-intersect"></i></div>
+        <div class="feature-result-badge"><i class="ti ti-trophy"></i> 4段階レベル判定</div>
+        <div class="feature-title">レベル別に"やるべきこと"を明確化</div>
+        <div class="feature-body">「とりあえずやってみて」ではなく、あなたの現在地から次の一手を具体的に提示。初心者〜上級者まで、全員が納得できる設計です。</div>
+      </div>
+      <div class="feature-card fade-up fade-up-1">
+        <div class="feature-icon-wrap"><i class="ti ti-user-check"></i></div>
+        <div class="feature-result-badge"><i class="ti ti-heart"></i> 高い納得感・自分ごと化</div>
+        <div class="feature-title">「自分に合ってる」と感じる設計</div>
+        <div class="feature-body">業種・役職・課題を踏まえた診断ロジックで、「まさに自分のことだ」という自分ごと化を実現。次の行動への動機が高まります。多くの方から「的確だった」とご好評いただいています。</div>
+      </div>
+      <div class="feature-card fade-up fade-up-2">
+        <div class="feature-icon-wrap"><i class="ti ti-arrows-right"></i></div>
+        <div class="feature-result-badge"><i class="ti ti-bolt"></i> LINE上で自動プラン提案</div>
+        <div class="feature-title">自動で最適プランに誘導</div>
+        <div class="feature-body">診断結果に応じて「無料会員」or「プレミアムプラン」どちらが最適かを判定し、LINEリッチメニューへスムーズに誘導します。スマホから完全完結。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESULT TYPES ═══ -->
+<section class="result-sec lw" id="results">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">診断結果タイプ</p>
+    <h2 class="sec-title">あなたはどの<em>4タイプ</em>？</h2>
+    <p class="sec-sub">4つのタイプ別に、今すぐ取るべきアクションを提案します。</p>
+  </div>
+  <div class="inner">
+    <div class="result-grid">
+      <div class="result-card fade-up">
+        <div class="result-emoji">🌱</div>
+        <div class="result-level">LEVEL 1</div>
+        <div class="result-type">AIビギナー</div>
+        <div class="result-desc">AIってなに？という段階。まず基礎から体系的に学ぶルートで、確実にスタートできます。</div>
+        <div class="result-goto"><i class="ti ti-arrow-right"></i> 無料会員からスタート推奨</div>
+      </div>
+      <div class="result-card featured fade-up fade-up-1">
+        <div class="result-emoji">🔥</div>
+        <div class="result-level">LEVEL 2</div>
+        <div class="result-type">AIトライヤー</div>
+        <div class="result-desc">使ったことはあるが活用しきれていない。実践ワークとプロンプト集で一気に加速できます。</div>
+        <div class="result-goto"><i class="ti ti-arrow-right"></i> プレミアムプランが最適</div>
+      </div>
+      <div class="result-card fade-up fade-up-2">
+        <div class="result-emoji">🚀</div>
+        <div class="result-level">LEVEL 3</div>
+        <div class="result-type">AIアクティブ</div>
+        <div class="result-desc">日常的にAIを活用している。次は事業・組織へのAI展開。企業研修や事業相談で次のステージへ。</div>
+        <div class="result-goto"><i class="ti ti-arrow-right"></i> 企業研修・事業相談へ</div>
+      </div>
+      <div class="result-card fade-up fade-up-3">
+        <div class="result-emoji">⚡</div>
+        <div class="result-level">LEVEL 4</div>
+        <div class="result-type">AIネイティブ</div>
+        <div class="result-desc">AIを自在に使いこなしている。新規事業創出・組織変革・プロダクト開発へのAI実装をサポートします。</div>
+        <div class="result-goto"><i class="ti ti-arrow-right"></i> 事業創出・DX相談へ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST / SUPPORT（C-2, C-3修正）=== -->
+<section class="trust-sec lw" id="trust">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">安心・サポート</p>
+    <h2 class="sec-title">診断後も、<em>一人にしない</em>仕組みがある</h2>
+    <p class="sec-sub">はじめて.AIは、診断から学習・導入まで一貫してサポートします。</p>
+  </div>
+  <div class="inner">
+    <div class="trust-grid">
+      <div class="trust-list">
+        <div class="trust-item-card">
+          <div class="trust-ic"><i class="ti ti-brand-line"></i></div>
+          <div>
+            <div class="trust-item-title">LINE公式でいつでも質問</div>
+            <div class="trust-item-body">診断後はLINEへ戻るだけ。疑問はその場で解決。はじめて.AIチームへの相談もLINE上で完結します。</div>
+          </div>
+        </div>
+        <div class="trust-item-card">
+          <div class="trust-ic"><i class="ti ti-school"></i></div>
+          <div>
+            <div class="trust-item-title">初心者向けセミナーが充実</div>
+            <div class="trust-item-body">オンライン・オフライン両対応。AI基礎〜実践ワークまで、あなたのペースで学べます。</div>
+          </div>
+        </div>
+        <!-- C-2修正: 「専門家チームがバックアップ」→「はじめて.AIチームがバックアップ」 -->
+        <div class="trust-item-card">
+          <div class="trust-ic"><i class="ti ti-users"></i></div>
+          <div>
+            <div class="trust-item-title">はじめて.AIチームがバックアップ</div>
+            <div class="trust-item-body">はじめて.AIチームが、導入計画から運用改善まで並走します。セミナーから個別相談まで一貫してサポートします。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="trust-cert-wrap">
+          <div class="trust-cert-title"><i class="ti ti-award" style="color:var(--g)"></i> はじめて.AIが選ばれる理由</div>
+          <div class="trust-cert-list">
+            <!-- C-2修正: 「AI専門家が監修」→「はじめて.AIチームが設計・運営」 -->
+            <div class="trust-cert-item"><i class="ti ti-circle-check"></i> はじめて.AIチームが設計・運営する独自の診断ロジック</div>
+            <!-- C-3修正: 「大手・中小・スタートアップを問わず企業研修実績あり」は維持（事実ベース） -->
+            <div class="trust-cert-item"><i class="ti ti-circle-check"></i> 製造業・IT・サービス業など幅広い業種へのセミナー提供実績</div>
+            <div class="trust-cert-item"><i class="ti ti-circle-check"></i> 個人情報は一切取得せず安全（友だち追加のみ）</div>
+            <div class="trust-cert-item"><i class="ti ti-circle-check"></i> 診断〜LINE連携まで完全無料</div>
+            <div class="trust-cert-item"><i class="ti ti-circle-check"></i> synq / Stratam α / oku秘書など自社AIツール連携</div>
+          </div>
+          <!-- C-3修正: 根拠のない「30+企業研修導入実績」を削除し、確実な実績値のみ掲載 -->
+          <div class="trust-stat-row">
+            <div class="trust-stat-item">
+              <span class="trust-stat-num">5,000+</span>
+              <div class="trust-stat-label">LINE公式<br>友だち数</div>
+            </div>
+            <div class="trust-stat-item">
+              <span class="trust-stat-num">4業種</span>
+              <div class="trust-stat-label">対応業種<br>カバー</div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-quote">
+          <p class="trust-quote-text">「診断してみたら自分のレベルが明確になって、何をすれば良いかが一気にわかった。プレミアムプランに入って本当に良かった。」</p>
+          <p class="trust-quote-author">— 製造業・40代 代表取締役</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ（W-2, W-3, W-7修正）=== -->
+<section class="faq-sec lw" id="faq">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">よくある質問</p>
+    <h2 class="sec-title">「やってみようかな」を<em>邪魔する</em>不安を解消</h2>
+  </div>
+  <div class="inner-sm">
+    <div class="faq-list">
+      <div class="faq-item" id="faq1">
+        <div class="faq-q" onclick="tog('faq1')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> 本当に無料ですか？後から課金が必要になりますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">診断自体は完全無料です。クレジットカードの登録も不要。診断後に無料会員・プレミアムプランの選択肢をご提案しますが、強制ではありません。無料会員のままでも十分なコンテンツをご利用いただけます。</div></div>
+      </div>
+      <div class="faq-item" id="faq2">
+        <div class="faq-q" onclick="tog('faq2')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> AIについて全く知識がなくても受けられますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">もちろんです。むしろ知識ゼロの方こそ受けてほしい診断です。「AIって聞いたことある」くらいの知識で十分。専門用語は一切使わず、日常の言葉で答えられる設計になっています。</div></div>
+      </div>
+      <div class="faq-item" id="faq3">
+        <div class="faq-q" onclick="tog('faq3')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> LINE友だち追加は必要ですか？個人情報は取られますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">診断の開始と結果の受け取りにLINE公式アカウントの友だち追加が必要です。ただし、氏名・メールアドレス等の入力は一切不要で、友だち追加のみで診断がスタートします。友だち追加はいつでもブロック・解除が可能です。それ以上の個人情報収集は行いません。</div></div>
+      </div>
+      <div class="faq-item" id="faq4">
+        <div class="faq-q" onclick="tog('faq4')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> スマホでもできますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">はい、スマホのLINEアプリから完全に完結します。LINEアプリを開いて友だち追加するだけで診断がスタート。診断完了後もそのままLINEのリッチメニューからプランを選べます。PCからもQRコードを経由してLINEで参加いただけます。</div></div>
+      </div>
+      <!-- W-3: セミナーの参加方法 -->
+      <div class="faq-item" id="faq-seminar">
+        <div class="faq-q" onclick="tog('faq-seminar')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> セミナーへの参加方法と料金を教えてください。</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">セミナーはすべてLINE公式アカウントから申し込めます。①LINE友だち追加 → ②リッチメニューから「セミナーを探す」を選択 → ③日程・会場を選んで予約・決済 という流れでLINE内で完結します。<br><br>料金は、オンラインセミナーが3,000円/回、オフラインセミナーが15,000円/回です（いずれも無料会員の場合の通常価格）。プレミアムプラン（月5,000円）にご入会いただくと、オンライン・オフラインセミナーが無料でご参加いただけます。</div></div>
+      </div>
+      <div class="faq-item" id="faq5">
+        <div class="faq-q" onclick="tog('faq5')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> プレミアムプラン（5,000円/月）は本当に元が取れますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">オフラインセミナーは通常15,000円/回。プレミアムプランなら月1回参加するだけで3倍以上の元が取れる計算です。オンラインセミナー（通常3,000円/回）でも2回参加で元が取れます。さらに月1回の事業相談無料・企業研修半額なども含まれ、ご利用頻度に応じて費用対効果が高まります。※実際の効果はご利用状況によって異なります。</div></div>
+      </div>
+      <!-- W-2: 解約FAQ追加 -->
+      <div class="faq-item" id="faq-cancel">
+        <div class="faq-q" onclick="tog('faq-cancel')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> いつでも解約できますか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">はい、いつでも解約可能です。解約手続きはLINEのチャットまたはリッチメニューから行えます。解約後は月末まで引き続きご利用いただけます。月の途中で解約された場合でも、日割り返金はありません。なお、年払いプランは現在提供していません。</div></div>
+      </div>
+      <div class="faq-item" id="faq6">
+        <div class="faq-q" onclick="tog('faq6')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> 診断の結果が「無料会員でOK」になったら有料プランは不要ですか？</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">そのとおりです。まず無料会員として学習し、セミナーに参加してAIの面白さを体感してから、必要性を感じたタイミングでプレミアムにアップグレードする段階的なステップを推奨しています。焦る必要はありません。</div></div>
+      </div>
+      <!-- W-7: 招待制度FAQ追加 -->
+      <div class="faq-item" id="faq-invite">
+        <div class="faq-q" onclick="tog('faq-invite')">
+          <div class="faq-q-text"><span class="faq-q-icon">Q</span> 「1名招待で1セミナー無料」の使い方を教えてください。</div>
+          <i class="ti ti-plus faq-toggle"></i>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">友人・知人1名をはじめて.AIのLINE公式アカウントに友だち追加してもらうと、あなたのオンラインセミナー（通常3,000円）が1回無料になります。<br><br>招待方法：LINEリッチメニューの「友だちを招待する」から招待リンクを発行 → 相手が友だち追加で完了。<br>有効期限：招待完了から60日以内にご利用ください。<br>対象：オンラインセミナー1回（1招待につき1回まで）。<br>回数の上限はありません。招待した人数分だけ特典が付与されます。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING（C-5, W-2, W-6修正）=== -->
+<section class="pricing-sec lw" id="pricing">
+  <div class="inner-sm" style="text-align:center">
+    <p class="sec-label">プラン・価格</p>
+    <h2 class="sec-title">診断後に選べる、<em>2つのプラン</em></h2>
+    <p class="sec-sub">診断結果に応じて最適なプランをご提案。まずは無料から始められます。</p>
+  </div>
+  <div class="inner">
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="price-card fade-up">
+        <div class="price-header">
+          <div class="price-plan-name">無料会員</div>
+          <div class="price-amount">¥0<span>/月</span></div>
+          <div class="price-desc">まずは気軽にAIを体験したい方に。</div>
+        </div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <!-- W-3: セミナー価格の意味を明確化 -->
+          <div class="price-feat"><i class="ti ti-circle-check"></i> オンラインセミナー参加（通常3,000円/回）</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> AI導入診断（LINE）</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> プロンプト集の受取り</div>
+          <!-- W-7: 招待制度の条件を明確化 -->
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 1名招待で1オンラインセミナー無料<br><span style="font-size:0.72rem;color:#767676">（LINE友達紹介・有効期限60日）</span></div>
+          <div class="price-feat dim"><i class="ti ti-circle-x"></i> オフラインセミナー無料参加</div>
+          <div class="price-feat dim"><i class="ti ti-circle-x"></i> 事業相談（月1回）</div>
+          <div class="price-feat dim"><i class="ti ti-circle-x"></i> セミナーアーカイブ</div>
+        </div>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-outline" style="width:100%;justify-content:center" target="_blank" rel="noopener">
+          <span class="line-icon-badge" style="border:1.5px solid var(--black)"><i class="ti ti-brand-line" style="color:var(--g)"></i></span> 無料で診断してスタート
+        </a>
+      </div>
+      <!-- Premium (featured) C-5修正: 「診断でおすすめ率No.1」→「最もご選択いただいているプラン」 -->
+      <div class="price-card featured fade-up fade-up-1">
+        <div class="price-card-badge">最もご選択いただいているプラン</div>
+        <div class="price-header">
+          <div class="price-plan-name">プレミアムプラン</div>
+          <div class="price-amount">¥5,000<span>/月</span></div>
+          <div class="price-desc">本気でAIを使い倒したい方へ。全特典フル活用。</div>
+        </div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feat"><i class="ti ti-circle-check"></i> オンライン・オフラインセミナー<strong style="color:var(--g)">無料</strong></div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 最新AIトレンド情報共有</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 月1回の事業相談<strong style="color:var(--g)">無料</strong></div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> セミナーアーカイブ視聴</div>
+          <!-- W-6修正: 「自社AIサービス宣伝タイム」→具体的な表現 -->
+          <div class="price-feat"><i class="ti ti-circle-check"></i> セミナー内での自社サービスPR時間（月1回）</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 企業研修<strong style="color:var(--g)">半額</strong></div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> AI導入診断（優先対応）</div>
+        </div>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-line" style="width:100%;justify-content:center" target="_blank" rel="noopener">
+          <span class="line-icon-badge"><i class="ti ti-brand-line"></i></span> 診断してプレミアムへ
+        </a>
+        <!-- W-2: いつでも解約OKマイクロコピー -->
+        <div class="price-cancellation-note">
+          <i class="ti ti-check"></i> いつでも解約OK・月末まで利用可能
+        </div>
+      </div>
+      <!-- Enterprise -->
+      <div class="price-card fade-up fade-up-2">
+        <div class="price-header">
+          <div class="price-plan-name">企業研修</div>
+          <div class="price-amount" style="font-size:1.8rem">要相談</div>
+          <div class="price-desc">社員・管理職・経営者向けのカスタマイズ研修。</div>
+        </div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 社員育成プログラム</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 管理職・経営者向け研修</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 部署別カスタマイズ</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> DX推進コンサルティング</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> synq / Stratam α 活用支援</div>
+          <div class="price-feat"><i class="ti ti-circle-check"></i> 導入後フォローアップ</div>
+        </div>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-outline" style="width:100%;justify-content:center" target="_blank" rel="noopener">
+          <i class="ti ti-brand-line"></i> LINEで現状を相談する
+        </a>
+      </div>
+    </div>
+
+    <!-- ROI Box -->
+    <div class="roi-box fade-up">
+      <div class="roi-title"><i class="ti ti-calculator"></i> プレミアムプランの費用対効果シミュレーション</div>
+      <div class="roi-note">※ 以下は代表的な利用ケースの試算です。実際の効果はご利用状況によって異なります。</div>
+      <div class="roi-grid">
+        <div class="roi-item">
+          <div class="roi-num">¥5,000</div>
+          <div class="roi-label">月額投資</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-num">¥15,000</div>
+          <div class="roi-label">オフラインセミナー<br>1回の通常価格</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-num">200%+</div>
+          <div class="roi-label">月1回参加時の<br>ROI（試算）</div>
+        </div>
+      </div>
+      <div class="roi-disclaimer">※ ROIはオフラインセミナー月1回参加（通常¥15,000）の場合の試算です。事業相談・アーカイブ・招待特典等のご利用で、さらに費用対効果が向上します。効果を保証するものではありません。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta lw" id="cta">
+  <div class="final-cta-bg-text">START</div>
+  <div class="inner final-cta-inner">
+    <div class="final-cta-label">
+      <i class="ti ti-clock"></i> 今すぐ30秒で診断完了
+    </div>
+    <h2 class="final-cta-h2">
+      まず「診断」から。<br>
+      <em>あなたのAI活用ルートが、今日決まる。</em>
+    </h2>
+    <p class="final-cta-sub">
+      登録不要・完全無料。たった5問に答えるだけで、<br>
+      あなた専用のAI学習ロードマップと最適プランをご提案します。
+    </p>
+    <div class="final-cta-btn-wrap">
+      <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="line-cta-main" style="font-size:1.15rem;padding:22px 52px" target="_blank" rel="noopener">
+        <span class="line-icon-badge" style="width:32px;height:32px"><i class="ti ti-brand-line" style="font-size:1.2rem"></i></span>
+        LINEで無料診断をはじめる
+        <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+    <div class="final-cta-micro">
+      <i class="ti ti-shield-check"></i> 個人情報の入力不要 &nbsp;|&nbsp;
+      <i class="ti ti-clock"></i> 所要30秒 &nbsp;|&nbsp;
+      <i class="ti ti-brand-line"></i> LINEで完全完結
+    </div>
+    <div class="final-cta-pc-note pc">
+      <i class="ti ti-device-desktop"></i>
+      PCからの場合は <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">こちら（LINE QRコード）</a> からご参加いただけます
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER（C-4修正: 特商法・会社情報記載）=== -->
+<footer class="footer lw">
+  <div class="inner footer-inner">
+    <div>
+      <div class="footer-brand-name">はじめて.AI</div>
+      <div class="footer-tagline">AIの基礎から実践まで、あなたの「はじめて」を全力サポート。</div>
+      <div class="footer-services" style="margin-top:12px">
+        <div class="footer-svc"><i class="ti ti-circles-relation"></i> synq</div>
+        <div class="footer-svc"><i class="ti ti-star"></i> Stratam α</div>
+        <div class="footer-svc"><i class="ti ti-robot"></i> oku秘書</div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-links-title">メニュー</div>
+      <div class="footer-links">
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">セミナーを探す</a>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">特典・プロンプト集</a>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">企業研修のご案内</a>
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">プレミアムプラン</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-links-title">サポート</div>
+      <div class="footer-links">
+        <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" target="_blank" rel="noopener">お問い合わせ（LINE）</a>
+        <a href="#faq">よくある質問</a>
+        <!-- C-4修正: 特商法・利規・PP リンク（準備中から実際の情報ページへ要差し替え） -->
+        <a href="https://l.oku-ai.co.jp/tokusho" target="_blank" rel="noopener">特定商取引法に基づく表記</a>
+        <a href="https://l.oku-ai.co.jp/terms" target="_blank" rel="noopener">利用規約</a>
+        <a href="https://l.oku-ai.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+      </div>
+    </div>
+  </div>
+  <!-- C-4修正: 特商法表記（法定記載事項）-->
+  <div class="inner footer-tokusho">
+    <div class="footer-tokusho-title">販売業者情報（特定商取引法に基づく表記）</div>
+    <div class="footer-tokusho-grid">
+      <div class="footer-tokusho-item"><span>販売業者</span>oku株式会社</div>
+      <div class="footer-tokusho-item"><span>所在地</span>〒451-0045 愛知県名古屋市西区名駅2-34-17-1101</div>
+      <div class="footer-tokusho-item"><span>電話番号</span>050-6875-6560</div>
+      <div class="footer-tokusho-item"><span>メールアドレス</span>info@oku-ai.co.jp</div>
+      <div class="footer-tokusho-item"><span>URL</span>https://l.oku-ai.co.jp</div>
+      <div class="footer-tokusho-item"><span>サービス名</span>はじめて.AI（プレミアムプラン）</div>
+      <div class="footer-tokusho-item"><span>料金</span>月額 5,000円（税込）</div>
+      <div class="footer-tokusho-item"><span>支払い方法</span>クレジットカード・LINE Pay等（LINE内決済）</div>
+      <div class="footer-tokusho-item"><span>解約条件</span>いつでも解約可。解約後は月末まで利用可。日割り返金なし</div>
+    </div>
+  </div>
+  <div class="inner footer-bottom">
+    <div class="footer-copy">© 2024–2026 はじめて.AI（oku株式会社）All rights reserved.</div>
+    <div style="font-size:0.72rem;color:var(--gray)">Powered by はじめて.AI</div>
+  </div>
+</footer>
+
+<!-- ═══ SP STICKY CTA ═══ -->
+<div class="sp-sticky sp">
+  <div class="sp-sticky-text">
+    <strong>AIネイティブ度診断</strong>
+    30秒・無料・LINEで完結
+  </div>
+  <a href="https://l.oku-ai.co.jp/r/01krzp7rrzrn" class="btn btn-line" target="_blank" rel="noopener">
+    <i class="ti ti-brand-line"></i> 診断する
+  </a>
+</div>
+
+<script>
+/* C-4: ハンバーガー / ドロワー */
+function toggleDrawer() {
+  var btn = document.getElementById('hamBtn');
+  var drawer = document.getElementById('drawer');
+  var overlay = document.getElementById('drawerOverlay');
+  var isOpen = drawer.classList.contains('open');
+  if (isOpen) { closeDrawer(); } else { openDrawer(); }
+}
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('hamBtn').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('open');
+  document.body.style.overflow = '';
+}
+/* ESCキーで閉じる */
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDrawer(); });
+
+/* FAQ アコーディオン */
+function tog(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(item) {
+    item.classList.remove('open');
+    item.querySelector('.faq-a').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    el.classList.add('open');
+    var ans = el.querySelector('.faq-a');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}
+
+/* Pain セグメント切り替え */
+function switchPain(type, btn) {
+  document.querySelectorAll('.pain-seg-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.pain-cards-wrap').forEach(function(w){ w.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('pain-' + type).classList.add('active');
+}
+
+/* W-4修正: モック診断 — 自動タイマー削除、手動インタラクション + 最終ステップのLINE誘導 */
+function showMockResult() {
+  var quiz = document.getElementById('mockQuiz');
+  var result = document.getElementById('mockResult');
+  if (quiz && result) {
+    quiz.style.transition = 'opacity 0.4s';
+    quiz.style.opacity = '0';
+    setTimeout(function() {
+      quiz.style.display = 'none';
+      result.style.display = 'block';
+      result.style.opacity = '0';
+      result.style.transition = 'opacity 0.5s';
+      setTimeout(function() { result.style.opacity = '1'; }, 50);
+    }, 400);
+  }
+}
+
+function selectChoice(el) {
+  var parent = el.parentNode;
+  parent.querySelectorAll('.mock-choice').forEach(function(c){ c.classList.remove('selected'); });
+  el.classList.add('selected');
+}
+
+/* IntersectionObserver フェードイン */
+if ('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1)';
+    var delay = 0;
+    if (el.classList.contains('fade-up-1')) delay = 0.12;
+    if (el.classList.contains('fade-up-2')) delay = 0.24;
+    if (el.classList.contains('fade-up-3')) delay = 0.36;
+    if (el.classList.contains('fade-up-4')) delay = 0.48;
+    el.style.transitionDelay = delay + 's';
+    obs.observe(el);
+  });
+}
+</script>
+</body>
+</html>
